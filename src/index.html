@@ -4,21 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
-
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
+    <section class="search">
+      <div class="container">
+        <form class="search-form js-search-form">
+          <input
+            name="enterForSearsh"
+            type="text"
+            placeholder="Search images..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+        <span class="loader js-loader"></span>
+        <ul class="search-list js-search-list"></ul>
+        <div class="wrap-more">
+          <span class="loader js-loader-more"></span>
+          <button class="search-more js-search-more" type="button">
+            Load more
+          </button>
+        </div>
+      </div>
     </section>
-
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
-
     <script type="module" src="./main.js"></script>
   </body>
 </html>
