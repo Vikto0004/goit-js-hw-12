@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/goit-js-hw-12/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+    
+    <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-09d7c26e.js">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-1cd1f9d9.css">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-6f9c939a.css">
+  </head>
+  <body>
+    <section class="search">
+      <div class="container">
+        <form class="search-form js-search-form">
+          <input
+            name="enterForSearsh"
+            type="text"
+            placeholder="Search images..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+        <span class="loader js-loader"></span>
+        <ul class="search-list js-search-list"></ul>
+        <div class="wrap-more">
+          <span class="loader js-loader-more"></span>
+          <button class="search-more js-search-more" type="button">
+            Load more
+          </button>
+        </div>
+      </div>
+    </section>
+    
+  </body>
+</html>
