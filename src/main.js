@@ -12,6 +12,7 @@ const elLoaderMore = document.querySelector('.js-loader-more');
 const elBtnSearchMore = document.querySelector('.js-search-more');
 
 let page = 1;
+let totalPage = 1;
 let query = '';
 
 elSearchForm.addEventListener('submit', async event => {
@@ -41,7 +42,15 @@ elSearchForm.addEventListener('submit', async event => {
 
     elSearchList.innerHTML = `${returnMarkup(data.hits)}`;
     elLoader.classList.remove('is-active');
-    if (data.totalHits > 15) elBtnSearchMore.classList.add('is-active');
+    elBtnSearchMore.classList.add('is-active');
+
+    if (data.totalHits < 15) {
+      elBtnSearchMore.classList.remove('is-active');
+      iziToast.info({
+        position: 'topRight',
+        message: "We're sorry, but you've reached the end of search results.",
+      });
+    }
     lightbox.refresh();
   } catch (error) {
     console.log(error);
@@ -65,7 +74,8 @@ elBtnSearchMore.addEventListener('click', async () => {
       behavior: 'smooth',
     });
 
-    if (elSearchList.childElementCount === data.totalHits) {
+    totalPage = Math.ceil(data.totalHits / 15);
+    if (totalPage === page) {
       elBtnSearchMore.classList.remove('is-active');
       iziToast.info({
         position: 'topRight',
